@@ -1,0 +1,52 @@
+.mask-box-active {
+    border-radius: 20px;
+    position: relative;
+    background: rgb(139, 168, 141);
+    box-shadow: 1px 1px 2px rgb(165, 165, 165) inset;
+  }
+  .mask-box-inactive {
+    border-radius: 20px;
+    position: relative;
+    background: rgb(211, 156, 156);
+    box-shadow: 1px 1px 2px rgb(165, 165, 165) inset;
+  }
+  .mask-box-active .active {
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    background: #2E7D32;
+    position: absolute;
+    box-shadow: 1px 0 2px rgb(76, 134, 79);
+    transition: all 0.5s ease;
+  }
+  .mask-box-inactive .inactive {
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    background: #D32F2F;
+    position: absolute;
+    box-shadow: 1px 0 2px rgb(211, 116, 116);
+    transition: all 0.5s ease;
+  }
+  .mask-box-active .MuiButton-root {
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 10px;
+    transition: all 0.2s 0.1s ease;
+  }
+  .mask-box-inactive .MuiButton-root {
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 10px;
+    transition: all 0.2s 0.1s ease;
+  }
+  .mask-box-active .MuiButton-root:hover {
+    opacity: 0.8;
+  }
+  .mask-box-inactive .MuiButton-root:hover {
+    opacity: 0.8;
+  }

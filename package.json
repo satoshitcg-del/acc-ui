@@ -1,0 +1,60 @@
+{
+  "name": "react-typescript-template",
+  "private": true,
+  "version": "2.5.0",
+  "type": "module",
+  "workspaces": [
+    "app",
+    "api-mock"
+  ],
+  "scripts": {
+    "start": "yarn workspace app start",
+    "start-api-mock": "yarn workspace api-mock start",
+    "lint": "eslint --cache --report-unused-disable-directives .",
+    "test": "vitest",
+    "build": "yarn workspace app build",
+    "trans": "node ./convertTrans.js",
+    "inc-version": "node ./checkVersion.js"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.11.0",
+    "@emotion/eslint-plugin": "^11.11.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/eslint": "^8.44.2",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "graphql": "^16.8.0",
+    "happy-dom": "^10.10.2",
+    "prettier": "^3.0.2",
+    "react": "^18.2.0",
+    "relay-config": "^12.0.1",
+    "typescript": "~5.1.6",
+    "vite": "~4.4.9",
+    "vitest": "^0.33.0"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "quoteProps": "as-needed",
+    "jsxSingleQuote": false,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "endOfLine": "lf"
+  },
+  "dependencies": {
+    "google-auth-library": "^8.9.0",
+    "google-spreadsheet": "^4.1.0"
+  }
+}

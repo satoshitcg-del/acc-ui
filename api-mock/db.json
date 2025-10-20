@@ -1,0 +1,821 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "products": [
+    {
+      "id": "product-id-001",
+      "name": "Sportbook V2",
+      "description": "",
+      "active": true,
+      "price": 30000,
+      "replacer": 0,
+      "discount": "20%",
+      "type": 0,
+      "status": 1,
+      "ref": "",
+      "created_at": "2023-09-05T17:49:04.542Z",
+      "updated_at": "2023-09-05T17:49:04.542Z"
+    },
+    {
+      "id": "product-id-002",
+      "name": "Backup Site",
+      "description": "",
+      "active": true,
+      "price": 5000,
+      "replacer": 0,
+      "discount": "20%",
+      "type": 1,
+      "status": 2,
+      "ref": "product-id-001",
+      "created_at": "2023-09-05T17:49:04.542Z",
+      "updated_at": "2023-09-05T17:49:04.542Z"
+    },
+    {
+      "id": "product-id-003",
+      "name": "Bot Prefix",
+      "description": "",
+      "active": true,
+      "price": 5000,
+      "replacer": 0,
+      "discount": "20%",
+      "type": 1,
+      "status": null,
+      "ref": "product-id-004",
+      "created_at": "2023-09-05T17:49:04.542Z",
+      "updated_at": "2023-09-05T17:49:04.542Z"
+    },
+    {
+      "id": "product-id-004",
+      "name": "Auto Topup V1",
+      "description": "",
+      "active": true,
+      "price": 30000,
+      "replacer": 0,
+      "discount": "20%",
+      "type": 1,
+      "status": 1,
+      "ref": "",
+      "created_at": "2023-09-05T17:49:04.542Z",
+      "updated_at": "2023-09-05T17:49:04.542Z"
+    }
+  ],
+  "customers": [
+    {
+      "username": "adminacc1",
+      "full_name": "adminacc1",
+      "email": "adminacc1@c.com",
+      "password": "qpehl5756vo",
+      "cash_pledge": "10000000",
+      "phone_number": "09876554211",
+      "line_id": "09876554211",
+      "telegram": "09876554211",
+      "what_app": "09876554211",
+      "id": 1
+    },
+    {
+      "username": "adminacc2",
+      "full_name": "adminacc2",
+      "email": "adminacc2@c.com",
+      "password": "8n10lsmo9k",
+      "cash_pledge": "123456789",
+      "phone_number": "09876542112",
+      "line_id": "09876542112",
+      "telegram": "09876542112",
+      "what_app": "09876542112",
+      "id": 2
+    },
+    {
+      "username": "adminacc3",
+      "full_name": "adminacc3",
+      "email": "adminacc3@3.com",
+      "password": "6lemrieg8nh",
+      "cash_pledge": "100000000",
+      "phone_number": "09876554211",
+      "line_id": "09876554211",
+      "telegram": "adminacc3",
+      "what_app": "adminacc3",
+      "id": 3
+    },
+    {
+      "username": "adminacc4",
+      "full_name": "adminacc4",
+      "email": "adminacc4@4.com",
+      "password": "39rbts1nrza",
+      "cash_pledge": "100000000",
+      "phone_number": "09876554211",
+      "line_id": "09876554211",
+      "telegram": "adminacc4",
+      "what_app": "adminacc4",
+      "id": 4
+    },
+    {
+      "username": "adminacc5",
+      "full_name": "adminacc5",
+      "email": "adminacc5@5.com",
+      "password": "zal9qhnpsta",
+      "cash_pledge": "100000000",
+      "phone_number": "09876554211",
+      "line_id": "09876554211",
+      "telegram": "adminacc5",
+      "what_app": "adminacc5",
+      "id": 5
+    },
+    {
+      "username": "adminacc7",
+      "full_name": "adminacc7",
+      "email": "adminacc7@7.com",
+      "password": "qf3dssh27z",
+      "cash_pledge": "100000000",
+      "phone_number": "09876554211",
+      "line_id": "adminacc7",
+      "telegram": "adminacc7",
+      "what_app": "adminacc7",
+      "id": 6
+    },
+    {
+      "username": "adminacc8",
+      "full_name": "adminacc8",
+      "email": "adminacc8@8.com",
+      "password": "8tjc08pmf",
+      "cash_pledge": "100000000",
+      "phone_number": "09876554211",
+      "line_id": "adminacc8",
+      "telegram": "adminacc8",
+      "what_app": "adminacc8",
+      "id": 7
+    }
+  ],
+  "customerProduct": [
+    {
+      "id": 1,
+      "productName": "SB GO1",
+      "linkProducts": "sb1.com65",
+      "discount": "10",
+      "status": false,
+      "note": "cell",
+      "createAt": "1695811926",
+      "updateAt": "1695811926",
+      "prefix": "XD",
+      "subProduct": [
+        {
+          "id": 0,
+          "subProductName": "s-sb1",
+          "linkProductName": "link-sb234",
+          "detail": "detail-sb1569",
+          "quantity": "3",
+          "status": true,
+          "note": "GG7755G"
+        },
+        {
+          "id": 1,
+          "subProductName": "s-sb2",
+          "linkProductName": "link-sb23",
+          "detail": "detail-sb2555",
+          "quantity": "12",
+          "status": true,
+          "note": "GGGG5"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "productName": "SB GO2",
+      "linkProducts": "SS2.com",
+      "discount": "20",
+      "status": false,
+      "note": "cell",
+      "createAt": "1695811926",
+      "updateAt": "1695811926",
+      "prefix": "XD"
+    }
+  ],
+  "subProductIntoCustomer": [
+    {
+      "id": "6532726ddd5d4a1b22e378a8",
+      "product_id": "65326fb7dd5d4a1b22e378a4",
+      "product_name": "Sportbook V1",
+      "sub_product_list": [
+        {
+          "count_data": 3,
+          "count_page": 1,
+          "data": [
+            {
+              "sub_product_id": "6532723bdd5d4a1b22e378a7",
+              "sub_product_name": "API Key",
+              "quantity": 1,
+              "note": "",
+              "product_link": [
+                {
+                  "prifix_id": "pf001",
+                  "prefix_name": "prefix 1"
+                },
+                {
+                  "prifix_id": "pf002",
+                  "prefix_name": "prefix 2"
+                },
+                {
+                  "prifix_id": "pf003",
+                  "prefix_name": "prefix 3"
+                },
+                {
+                  "prifix_id": "pf004",
+                  "prefix_name": "prefix 4"
+                },
+                {
+                  "prifix_id": "pf005",
+                  "prefix_name": "prefix 5"
+                },
+                {
+                  "prifix_id": "pf006",
+                  "prefix_name": "prefix 6"
+                },
+                {
+                  "prifix_id": "pf007",
+                  "prefix_name": "prefix 7"
+                },
+                {
+                  "prifix_id": "pf008",
+                  "prefix_name": "prefix 8"
+                },
+                {
+                  "prifix_id": "pf009",
+                  "prefix_name": "prefix 9"
+                },
+                {
+                  "prifix_id": "pf0010",
+                  "prefix_name": "prefix 10"
+                }
+              ],
+              "active": true,
+              "created_at": "2023-10-20T12:28:29Z",
+              "updated_at": "2023-10-26T10:03:48Z"
+            },
+            {
+              "sub_product_id": "653270120386f4c18bb2d2b5",
+              "sub_product_name": "Backup Site",
+              "quantity": 1,
+              "note": "",
+              "product_link": [
+                {
+                  "prifix_id": "pf001",
+                  "prefix_name": "prefix 1"
+                },
+                {
+                  "prifix_id": "pf002",
+                  "prefix_name": "prefix 2"
+                }
+              ],
+              "active": true,
+              "created_at": "2023-10-20T12:28:29Z",
+              "updated_at": "2023-10-26T10:03:48Z"
+            },
+            {
+              "sub_product_id": "65326fe0dd5d4a1b22e378a5",
+              "sub_product_name": "Rental Fee",
+              "quantity": 1,
+              "note": "",
+              "product_link": [
+                {
+                  "prifix_id": "pf001",
+                  "prefix_name": "prefix 1"
+                },
+                {
+                  "prifix_id": "pf002",
+                  "prefix_name": "prefix 2"
+                }
+              ],
+              "active": true,
+              "created_at": "2023-10-20T12:28:29Z",
+              "updated_at": "2023-10-26T10:03:48Z"
+            }
+          ]
+        }
+      ],
+      "note": "",
+      "discounts": null,
+      "active": false
+    }
+  ],
+  "subProductList": [
+    {
+      "id": "aa01",
+      "sub_product_name": "Joker"
+    },
+    {
+      "id": "aa02",
+      "sub_product_name": "SlotXO"
+    },
+    {
+      "id": "aa03",
+      "sub_product_name": "IAMPoker"
+    },
+    {
+      "id": "aa04",
+      "sub_product_name": "SuperSlot"
+    }
+  ],
+  "prefixList": [
+    {
+      "prifix_id": "bb01",
+      "prefix_name": "prefix1"
+    },
+    {
+      "prifix_id": "bb02",
+      "prefix_name": "prefix2"
+    },
+    {
+      "prifix_id": "bb03",
+      "prefix_name": "prefix3"
+    },
+    {
+      "prifix_id": "bb04",
+      "prefix_name": "prefix4"
+    }
+  ],
+  "discountList": [
+    {
+      "discount_id": "dd01",
+      "discount_name": "Discount 20%"
+    },
+    {
+      "discount_id": "dd02",
+      "discount_name": "Discount 30%"
+    },
+    {
+      "discount_id": "dd03",
+      "discount_name": "Discount 40%"
+    },
+    {
+      "discount_id": "dd04",
+      "discount_name": "Discount 50%"
+    }
+  ],
+  "billingNoteList": [
+    {
+      "id": 1,
+      "name": "Ronaldo",
+      "age": 38,
+      "joinDate": "11/11/2023",
+      "role": "Admin",
+      "status": "Paid",
+      "invoiceNo": "999999999"
+    },
+    {
+      "id": 2,
+      "name": "Messi",
+      "age": 36,
+      "joinDate": "12/11/2023",
+      "role": "Admin",
+      "status": "Pending",
+      "invoiceNo": "999999999"
+    },
+    {
+      "id": 3,
+      "name": "Kaka",
+      "age": 40,
+      "joinDate": "11/11/2023",
+      "role": "Admin",
+      "status": "Paid",
+      "invoiceNo": "999999999"
+    },
+    {
+      "id": 4,
+      "name": "Caicedo",
+      "age": 22,
+      "joinDate": "14/10/2023",
+      "role": "Admin",
+      "status": "Void",
+      "invoiceNo": "999999999"
+    },
+    {
+      "id": 5,
+      "name": "Enzo",
+      "age": 22,
+      "joinDate": "11/11/2023",
+      "role": "Admin",
+      "status": "Cancel",
+      "invoiceNo": "999999999"
+    },
+    {
+      "id": 6,
+      "name": "Thiago Silva",
+      "age": 39,
+      "joinDate": "11/11/2020",
+      "role": "Admin",
+      "status": "Overdue",
+      "invoiceNo": "999999999"
+    }
+  ],
+  "billingNoteDashboard": [
+    {
+      "status": "Draft",
+      "quantity": 400
+    },
+    {
+      "status": "Overdue",
+      "quantity": 300
+    },
+    {
+      "status": "Paid",
+      "quantity": 200
+    }
+  ],
+  "setupInv": [
+    {
+      "id": "66ffc02cb77b4d6ece10f097",
+      "update_time": "2024-10-03T10:14:54.527Z",
+      "setup_invoice": [
+        {
+          "id": "0",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b1",
+              "product_name": "Sportbook V2",
+              "prefix_name": "123bet"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b2",
+              "product_name": "Sportbook V1",
+              "prefix_name": "ambbet"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b6",
+              "product_name": "Sportbook V2",
+              "prefix_name": "456betting"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b5",
+              "product_name": "Sportbook V2",
+              "prefix_name": "mgm999"
+            }
+          ]
+        },
+        {
+          "id": "1",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b7",
+              "product_name": "AUTO PLAY",
+              "prefix_name": "18ifm"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b1",
+              "product_name": "AUTO PLAY",
+              "prefix_name": "456amp"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b77",
+              "product_name": "AUTO",
+              "prefix_name": "123ifm"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b14",
+              "product_name": "AUTO",
+              "prefix_name": "456rpc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66ffc03cb77b4d6ece10f099",
+      "update_time": "2024-10-03T10:14:54.527Z",
+      "setup_invoice": [
+        {
+          "id": "0",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b11",
+              "product_name": "Sportbook V1",
+              "prefix_name": "ambking1"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b21",
+              "product_name": "Sportbook V2",
+              "prefix_name": "ambbet"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b61",
+              "product_name": "Sportbook V3",
+              "prefix_name": "ambking2"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b51",
+              "product_name": "Sportbook V4",
+              "prefix_name": "ambking3"
+            }
+          ]
+        },
+        {
+          "id": "1",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b77",
+              "product_name": "AUTO PLAY",
+              "prefix_name": "PTGBET"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b17",
+              "product_name": "AUTO PLAY",
+              "prefix_name": "BBBET"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66ffc04fb77b4d6ece10f09b",
+      "update_time": "2024-10-03T10:14:54.527Z",
+      "setup_invoice": [
+        {
+          "id": "0",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b128",
+              "product_name": "Sportbook V1",
+              "prefix_name": "nightBet"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b238",
+              "product_name": "Sportbook V2",
+              "prefix_name": "ninjaBet"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b658",
+              "product_name": "Sportbook V3",
+              "prefix_name": "bingoBet"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b558",
+              "product_name": "Sportbook V4",
+              "prefix_name": "pokerBet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66e81e4669bb88bae99c10e7",
+      "update_time": "2024-10-03T10:14:54.527Z",
+      "setup_invoice": [
+        {
+          "id": "0",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b99",
+              "product_name": "Sportbook V1",
+              "prefix_name": "KKBET"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b88",
+              "product_name": "Sportbook V2",
+              "prefix_name": "KTBBET"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b77",
+              "product_name": "Sportbook V3",
+              "prefix_name": "SCBBET"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b66",
+              "product_name": "Sportbook V4",
+              "prefix_name": "TMBBET"
+            }
+          ]
+        },
+        {
+          "id": "1",
+          "list": [
+            {
+              "customer_product_id": "66aa0779651caf0779f438b87",
+              "product_name": "AUTO PLAY",
+              "prefix_name": "GGBET"
+            },
+            {
+              "customer_product_id": "66aa0779651caf0779f438b18",
+              "product_name": "AUTO PLAY",
+              "prefix_name": "MGMBET"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "oneTimeBilling": [
+    {
+      "id": "y0pOBLT",
+      "status": "REJECT",
+      "customer_id": "66ffc03cb77b4d6ece10f099",
+      "prefix": "66b5c470aecda5410c94e4af",
+      "products": [
+        {
+          "name": "ค่า logo",
+          "price": "2000"
+        },
+        {
+          "name": "ค่า logo",
+          "price": "4000"
+        }
+      ],
+      "total_price": "0",
+      "type": "Setup",
+      "customer_name": "xxx6",
+      "invoice_number": "INVSETEST",
+      "product_name": "AUTO(Prefix)",
+      "created_date": "2024-10-08T10:45:30.960Z"
+    },
+    {
+      "customer_id": "66ffc04fb77b4d6ece10f09b",
+      "prefix": "66b5c470aecda5410c94e4af",
+      "products": [
+        {
+          "name": "ค่า setup",
+          "price": "6000"
+        },
+        {
+          "name": "ค่ามัดจำ",
+          "price": "5000"
+        }
+      ],
+      "total_price": "0",
+      "type": "Setup",
+      "customer_name": "xxx7",
+      "invoice_number": "INVSETEST",
+      "product_name": "AUTO(Prefix)",
+      "status": "DRAFT",
+      "created_date": "2024-10-08T11:03:19.783Z",
+      "id": "2634ipu"
+    },
+    {
+      "customer_id": "66ffc02cb77b4d6ece10f097",
+      "prefix": "66aa0778651caf0779f438af",
+      "products": [
+        {
+          "name": "ค่า setup",
+          "price": "3000"
+        }
+      ],
+      "total_price": "0",
+      "type": "Setup",
+      "customer_name": "xxx5",
+      "invoice_number": "INVSETEST",
+      "product_name": "AUTO(Prefix)",
+      "status": "DRAFT",
+      "created_date": "2024-10-09T06:53:27.341Z",
+      "id": "lMmhL6q"
+    },
+    {
+      "customer_id": "66ffc02cb77b4d6ece10f097",
+      "prefix": "66ab53a3aecda5410c94e493",
+      "products": [
+        {
+          "name": "ค่า setup",
+          "price": "3000"
+        },
+        {
+          "name": "ค่ามัดจำ",
+          "price": "1500"
+        }
+      ],
+      "total_price": "0",
+      "type": "Setup",
+      "customer_name": "xxx5",
+      "invoice_number": "INVSETEST",
+      "product_name": "AUTO(Prefix)",
+      "status": "DRAFT",
+      "created_date": "2024-10-09T06:54:46.615Z",
+      "id": "3yBR_JR"
+    }
+  ],
+  "pricingGroup": [
+    {
+      "id": "66aa0779651caf0779f438b1",
+      "pricing_name": "Gunner",
+      "product_name": "Sportbook V1",
+      "product_id": "6631db06000e5ff0be400a1e",
+      "fiat_id": "66aa073fc0ac76418ed2862f",
+      "price": 1000,
+      "currency_name": "THB",
+      "updated_by": "Gun"
+    },
+    {
+      "id": "66aa0779651caf0779f438b6",
+      "pricing_name": "Gunner",
+      "product_name": "Sportbook V2",
+      "product_id": "666acfe70e2fd9ba5507f703",
+      "fiat_id": "66aa073fc0ac76418ed2862f",
+      "price": 1000,
+      "currency_name": "THB",
+      "updated_by": "Gun"
+    },
+    {
+      "id": "66aa0779651caf0779f438b5",
+      "pricing_name": "Gun",
+      "product_name": "Auto ออโต้",
+      "product_id": "660a6c624c9d5e7c9e837ea2",
+      "price": 1000,
+      "fiat_id": "66aa073fc0ac76418ed2862f",
+      "currency_name": "THB",
+      "updated_by": "Gun"
+    }
+  ],
+  "saleOwnerList": [
+    {
+      "id": "66aa0779651caf0779f438b1",
+      "name": "Gunner",
+      "type": "SALE"
+    },
+    {
+      "id": "66aa0779651caf0779f438b6",
+      "name": "Fiw",
+      "type": "SALE"
+    },
+    {
+      "id": "66aa0779651caf0779f438b5",
+      "name": "Note",
+      "type": "SALE"
+    },
+    {
+      "id": "66aa0779651caf0779f438b2",
+      "name": "Four",
+      "type": "SALE"
+    }
+  ],
+  "tagReferanceList": [
+    {
+      "id": "66aa0779651caf0779f438b1",
+      "name": "userTag1",
+      "type": "TAG_REFERENCE"
+    },
+    {
+      "id": "66aa0779651caf0779f438b6",
+      "name": "userTag2",
+      "type": "TAG_REFERENCE"
+    },
+    {
+      "id": "66aa0779651caf0779f438b5",
+      "name": "userTag3",
+      "type": "TAG_REFERENCE"
+    },
+    {
+      "id": "66aa0779651caf0779f438b2",
+      "name": "userTag4",
+      "type": "TAG_REFERENCE"
+    },
+    {
+      "name": "userTag5",
+      "type": "TAG_REFERENCE",
+      "id": "ozwohN0"
+    },
+    {
+      "name": "userTag6",
+      "type": "TAG_REFERENCE",
+      "id": "wMEZdJK"
+    }
+  ],
+  "taskManagement": [
+    {
+      "id": "001",
+      "priority": "1",
+      "status": "1",
+      "subject": "ระบบคำนวณบิลรายเดือนผิดยอดไม่ติดรบ",
+      "create_by": "2024-10-01T10:45:30.960Z",
+      "target_data": "2024-10-08T10:45:30.960Z",
+      "invoice_number": "INVSETEST",
+      "updated_by": "sale1",
+      "details": "done",
+      "comment": "comment",
+      "assignee": [ "sale2" ]
+    },
+    {
+        "id": "002",
+        "priority": "1",
+        "status": "2",
+        "subject": "ปุ๋มเพิ่มสินค้าหายไป",
+        "create_by": "2024-10-01T10:45:30.960Z",
+        "target_data": "2024-10-08T10:45:30.960Z",
+        "invoice_number": "INVSETEST",
+        "updated_by": "sale1",
+        "details": "done",
+        "comment": "done",
+        "assignee": [ "sale2" ]
+    }
+  ]
+}

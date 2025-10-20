@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "tiamut-regular-webfont";
+    src: local("tiamut-regular-webfont"),
+        url("./assets/fonts/regular/tiamut-regular-webfont.woff") format("woff"),
+        url("./assets/fonts/regular/tiamut-regular-webfont.woff2") format("woff2"),
+}
+
+@font-face {
+    font-family: "tiamut-bold-webfont";
+    src: local("tiamut-bold-webfont"),
+        url("./assets/fonts/bold/tiamut-bold-webfont.woff") format("woff"),
+        url("./assets/fonts/bold/tiamut-bold-webfont.woff2") format("woff2"),
+}
+
+
+@layer base {
+    body {
+        /* @apply font-IBM; */
+        font-family: "tiamut-regular-webfont";
+    }
+}
+
+.swal2-container {
+    z-index: 100000;
+}
+
+
+/* React quill */
+
+.ql-toolbar {
+    border-top-right-radius: 0.2rem;
+    border-top-left-radius: 0.2rem;
+}
+
+.ql-editor {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+/* *********** */
+
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 0.4rem;
+    height: 0.4rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(172, 172, 172);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #6e6a6a;
+}
+
+/* *********** */
+/* Viewport */
+@viewport {
+    width: 1400px;
+    zoom: 1.0;
+}
+
+/* Fixed layout rules */
+html {
+    overflow-x: auto;
+    /* min-width: 1400px; */
+}
