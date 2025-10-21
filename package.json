@@ -12,6 +12,13 @@
     "start-api-mock": "yarn workspace api-mock start",
     "lint": "eslint --cache --report-unused-disable-directives .",
     "test": "vitest",
+    "test:th": "yarn workspace app test:th",
+    "test:th:ui": "yarn workspace app test:th:ui",
+    "test:th:run": "yarn workspace app test:th:run",
+    "test:th:coverage": "yarn workspace app test:th:coverage",
+    "test:th:watch": "yarn workspace app test:th:watch",
+    "test:th:integration": "yarn workspace app test:th:integration",
+    "test:th:unit": "yarn workspace app test:th:unit",
     "build": "yarn workspace app build",
     "trans": "node ./convertTrans.js",
     "inc-version": "node ./checkVersion.js"
@@ -56,5 +63,6 @@
   "dependencies": {
     "google-auth-library": "^8.9.0",
     "google-spreadsheet": "^4.1.0"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

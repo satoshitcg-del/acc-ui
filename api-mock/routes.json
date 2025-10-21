@@ -1,0 +1,4 @@
+{
+    "/v1/auth/sign-in": "/customers",
+    "/v1/auth/verify": "/customers"
+  }
