@@ -1,7 +1,7 @@
 ### STAGE 1: Build ###
-FROM node:18-alpine as build
+FROM node:20-alpine as build
 WORKDIR /main
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH=/app/node_modules/.bin:$PATH
 
 COPY . /main
 ARG mode
@@ -12,7 +12,7 @@ RUN yarn trans
 RUN mode=$mode yarn build
 
 ### STAGE 2: NGINX ###
-FROM node:18-alpine
+FROM node:20-alpine
 RUN apk --no-cache add bash curl ca-certificates
 ARG git_commit=default
 ARG version=0.0.0

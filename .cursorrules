@@ -1,0 +1,395 @@
+# Cursor AI Rules - iShef Account UI
+
+## 🎯 Project Overview
+- **Framework**: React 18 + TypeScript 5.1 + Vite 4
+- **UI Library**: Material UI (MUI) v5 + Emotion + Tailwind CSS
+- **State Management**: Zustand,
+- **Forms**: React Hook Form + Yup
+- **i18n**: i18next + react-i18next (TH/EN)
+- **HTTP Client**: Axios
+- **Testing**: Vitest + happy-dom
+- **Package Manager**: Yarn (workspace monorepo)
+- **Node Version**: >=20.19.0
+
+---
+
+## 📝 Code Style & Formatting
+
+### General Rules
+- **ALWAYS** follow existing ESLint and Prettier configurations.
+- **DO NOT** override project formatting rules with custom styles.
+- Prettier config:
+  - Print width: 80
+  - Indent: 2 spaces (no tabs)
+  - Semicolons: required
+  - Quotes: double quotes (not single)
+  - Trailing commas: all
+  - Arrow function parens: always
+
+### TypeScript
+- **Strict mode**: enabled - respect it.
+- **NO `any` types** - use proper types or `unknown` when necessary.
+- **Use interfaces** for object shapes, **types** for unions/intersections.
+- **Type imports**: use `import type { ... }` for type-only imports when possible.
+- **Null safety**: always handle null/undefined cases explicitly.
+- Define types in `app/core/interface/` when shared across modules.
+
+---
+
+## 🗂️ File Organization & Naming
+
+### File Naming Conventions
+- **Components**: PascalCase (`LoginForm.tsx`, `UserCard.tsx`)
+- **Hooks**: camelCase with `use` prefix (`useFetchCustomers.ts`, `useAuth.ts`)
+- **Services**: PascalCase (`CustomerService.ts`, `AuthService.ts`)
+- **Utils**: camelCase (`dateUtils.ts`, `fileValidation.ts`)
+- **Types/Interfaces**: in `*.d.ts` files or inline
+
+### Structure
+- **One component per file** (unless small helper components are tightly coupled)
+- **Co-locate** related files:
+  ```
+  feature/
+    ├── index.tsx (main component)
+    ├── components/ (sub-components)
+    ├── hooks/ (custom hooks)
+    └── FeatureName.tsx
+  ```
+- **Test files**: co-locate as `<name>.test.tsx` or `<name>.spec.ts`
+
+### Import Conventions
+- **Use path alias** `@/*` instead of relative imports when crossing directories:
+  ```typescript
+  // ✅ Good
+  import { CustomerService } from "@/services/CustomerService";
+  import { ICustomer } from "@/core/interface/services";
+  
+  // ❌ Avoid
+  import { CustomerService } from "../../services/CustomerService";
+  ```
+- **Import order** (suggested):
+  1. React & external libraries
+  2. MUI components
+  3. Project imports with `@/` alias
+  4. Relative imports
+  5. Assets (SVG, JSON, CSS)
+  6. Type imports (group at the end or use `import type`)
+
+- **No side-effect imports** unless absolutely necessary (e.g., CSS imports).
+
+---
+
+## ⚛️ React Best Practices
+
+### Component Guidelines
+- **Functional components only** - no class components.
+- **Use hooks** for state and side effects.
+- **Prefer controlled components** for forms.
+- **Props typing**: always type component props with interface or type.
+  ```typescript
+  interface LoginFormProps {
+    callback: (page: string) => void;
+  }
+  
+  const LoginForm: React.FC<LoginFormProps> = ({ callback }) => {
+    // ...
+  };
+  ```
+- **displayName**: set for better debugging (especially for default exports):
+  ```typescript
+  Component.displayName = "Login";
+  ```
+
+### Hooks Best Practices
+- **Custom hooks**: prefix with `use` and return objects (not arrays unless tuple).
+- **Dependencies**: always include all dependencies in useEffect/useCallback/useMemo.
+- **ESLint**: follow `react-hooks/exhaustive-deps` warnings.
+- **Avoid** inline function definitions in JSX when passing to memoized children.
+
+### Performance
+- **Memoization**: use `React.memo` for expensive components, `useMemo` for calculations, `useCallback` for handlers passed to children.
+- **Code splitting**: use `React.lazy()` + `Suspense` for route-level code splitting (already in use).
+- **Avoid** unnecessary re-renders: check dependencies, use proper state structure.
+
+---
+
+## 🎨 Material UI (MUI) Guidelines
+
+### Theme Usage
+- **Use theme tokens** - never hardcode colors, spacing, or typography:
+  ```typescript
+  // ✅ Good
+  <Box sx={{ bgcolor: 'primary.main', p: 2, mt: 3 }}>
+  
+  // ❌ Avoid
+  <Box sx={{ backgroundColor: '#1976d2', padding: '16px', marginTop: '24px' }}>
+  ```
+- **Access theme**: via `sx` prop or `useTheme()` hook from MUI.
+- **Custom theme**: defined in `app/theme/` - extend it when needed, don't override inline.
+- **Palette**: light/dark mode supported via Recoil (`ThemeName` atom) - respect this pattern.
+
+### Component Patterns
+- **Prefer `sx` prop** over styled-components when possible (already using Emotion).
+- **Responsive design**: use MUI breakpoints in `sx`:
+  ```typescript
+  <Box sx={{ width: { xs: '100%', md: '50%' } }}>
+  ```
+- **Accessibility**: always add ARIA attributes when needed:
+  - `aria-label`, `aria-describedby`, `aria-hidden`
+  - Use semantic HTML (`<button>`, `<nav>`, `<main>`)
+- **Icons**: use `@mui/icons-material` (already installed).
+
+---
+
+## 🌐 Internationalization (i18n)
+
+### Rules
+- **NEVER hardcode UI text** - always use i18n keys.
+- **Use `useTranslation` hook** from `react-i18next`:
+  ```typescript
+  import { useTranslation } from "react-i18next";
+  
+  const { t } = useTranslation();
+  return <Button>{t("common.submit")}</Button>;
+  ```
+- **Add keys** to both `app/assets/locale/th/translation.json` and `en/translation.json`.
+- **Key naming**: use dot notation, group by feature:
+  ```json
+  {
+    "auth": {
+      "login": {
+        "title": "เข้าสู่ระบบ",
+        "submit": "ยืนยัน"
+      }
+    }
+  }
+  ```
+- **Default language**: Thai (TH).
+- **When adding new text**: propose translation keys in code comments; do NOT edit locale JSON manually. Generate keys with `yarn trans` (script calls `convertTrans.js`) and then fill translations in `th/translation.json` and `en/translation.json` as needed.
+
+---
+
+## 🔄 State Management
+
+### Strategy
+- **Recoil**: for global app state (theme, user profile, shared data).
+  - Atoms in `app/core/storerecoil/`
+  - Use `useRecoilState`, `useRecoilValue`, `useSetRecoilState`
+- **Zustand**: for feature-specific stores or when Recoil is overkill.
+- **Local state**: use `useState` for component-local data.
+- **Server state**: use custom hooks (e.g., `useFetchCustomers`) - consider adding react-query for caching if needed (but don't introduce it without approval).
+
+### Patterns
+- **Atoms**: define in dedicated files (e.g., `useProfileStore.tsx`).
+- **Selectors**: use for derived state.
+- **Avoid prop drilling**: lift state to Recoil/Zustand when passed through 3+ levels.
+
+---
+
+## 📋 Form Handling
+
+### React Hook Form + Yup
+- **Use `react-hook-form`** for all forms (already in use).
+- **Validation**: use Yup schemas with `@hookform/resolvers/yup`.
+- **Controlled inputs**: use `Controller` for MUI components.
+- **Error handling**: display errors with helper text:
+  ```typescript
+  <TextField
+    {...register("email")}
+    error={!!errors.email}
+    helperText={errors.email?.message}
+  />
+  ```
+- **Submit**: use `handleSubmit` wrapper, handle async operations properly.
+
+---
+
+## 🌐 API & Data Fetching
+
+### Service Layer
+- **All API calls** go through service files in `app/services/`.
+- **Service naming**: PascalCase function returning object with methods:
+  ```typescript
+  export default function CustomerService() {
+    return {
+      getCustomerList: async () => axios.get("/customers"),
+      // ...
+    };
+  }
+  ```
+- **Axios**: use configured instance (check `app/services/ServiceRequest.tsx`).
+- **Error handling**: use try-catch, log errors, show user-friendly messages via `notistack` (already installed).
+
+### Custom Hooks for Data
+- **Fetch hooks**: in `app/core/hooks/` (e.g., `useFetchCustomers.ts`).
+- **Pattern**:
+  ```typescript
+  export const useFetchCustomers = () => {
+    const [data, setData] = useState<ICustomer[]>();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<Error | null>(null);
+    
+    useEffect(() => {
+      // fetch logic
+    }, []);
+    
+    return { data, loading, error };
+  };
+  ```
+- **Don't mix patterns**: follow existing conventions, don't introduce new data fetching libs without approval.
+
+---
+
+## 🧪 Testing
+
+### Guidelines
+- **Test framework**: Vitest (already configured).
+- **Test location**: co-locate as `<name>.test.tsx` or `<name>.spec.ts`.
+- **What to test**:
+  - Critical business logic
+  - Custom hooks
+  - Utility functions
+  - Complex components (forms, state machines)
+- **Don't over-test**: avoid testing trivial components or third-party library wrappers.
+- **Run tests**: `yarn test` before committing.
+
+### Testing Patterns
+- **React Testing Library**: for component tests (not installed yet, use Vitest with happy-dom).
+- **Mock services**: when testing components that fetch data.
+- **Snapshot tests**: use sparingly, only for stable UI.
+
+---
+
+## 📦 Imports & Dependencies
+
+### Rules
+- **DO NOT introduce new dependencies** without explicit approval.
+- **If needed**: suggest in PR description with rationale.
+- **Use existing libraries**: check `package.json` before proposing alternatives.
+- **Tree-shaking**: prefer named imports over default when possible:
+  ```typescript
+  import { Button } from "@mui/material"; // ✅
+  import Button from "@mui/material/Button"; // Also OK for MUI
+  ```
+
+---
+
+## 🚫 Don'ts
+
+- ❌ No `console.log` in production code (use proper logging or remove).
+- ❌ No hardcoded API URLs - use env vars or config files.
+- ❌ No inline styles (except via `sx` prop or Emotion).
+- ❌ No class components.
+- ❌ No `any` types.
+- ❌ No ignoring ESLint warnings without good reason.
+- ❌ No mixing relative and alias imports inconsistently.
+- ❌ No global side effects in modules (except app entry point).
+- ❌ No committing without running linter: `yarn lint`.
+
+---
+
+## 🎯 Accessibility (a11y)
+
+- **Semantic HTML**: use `<button>`, `<nav>`, `<header>`, `<main>`, etc.
+- **Keyboard navigation**: ensure focusable elements are accessible via Tab.
+- **ARIA attributes**: add when semantic HTML is insufficient.
+- **Alt text**: always provide for images.
+- **Color contrast**: follow WCAG guidelines (MUI theme helps with this).
+- **Focus management**: ensure modals, dialogs trap focus properly (MUI handles this).
+
+---
+
+## 🔀 Git & Commits
+
+### Commit Messages
+- **MUST use Conventional Commits**:
+  ```
+  feat: add user authentication flow
+  fix: resolve MUI theme flickering on load
+  chore: update dependencies
+  docs: add API documentation
+  refactor: simplify customer service logic
+  test: add unit tests for date utils
+  ```
+- **Format**: `<type>(<scope>): <description>`
+- **Types**: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `test`, `perf`, `ci`
+
+### Pull Requests
+- **Keep changes minimal and scoped** to the feature/fix.
+- **Write clear descriptions**: what, why, how.
+- **Self-review**: check your own diff before requesting review.
+- **Link issues**: reference related tickets/issues.
+
+---
+
+## 💡 Comments & Documentation
+
+### When to Comment
+- **Complex logic**: add brief inline comments explaining "why", not "what".
+- **TODOs**: use `// TODO:` for future improvements (but don't overuse).
+- **JSDoc**: for exported functions, hooks, and utilities:
+  ```typescript
+  /**
+   * Fetches customer list from API.
+   * @returns Array of customer objects.
+   */
+  export const useFetchCustomers = () => {
+    // ...
+  };
+  ```
+
+### When NOT to Comment
+- Obvious code (let the code speak for itself).
+- Outdated comments (remove or update).
+
+---
+
+## 🔧 Build & Deploy
+
+- **Build**: `yarn build` (includes obfuscation when `OBFUSCATE=true`).
+- **Preview**: `yarn preview` to test production build locally.
+- **Environment**: use `.env` files (not committed) - reference `env/` directory.
+- **Config**: client config in `app/core/config.ts`, loaded from env vars via Vite.
+
+---
+
+## 🆘 When Uncertain
+
+- **Follow existing patterns** in the codebase.
+- **Check similar components** for guidance.
+- **Prefer minimal, idiomatic code** over complex abstractions.
+- **Ask in PR comments** if introducing new patterns.
+- **Don't break existing functionality** - test thoroughly.
+
+---
+
+## 📚 Key Files Reference
+
+- **Theme**: `app/theme/index.tsx`
+- **i18n Config**: `app/core/i18n/config.ts`
+- **Services**: `app/services/`
+- **Hooks**: `app/core/hooks/`
+- **Types**: `app/core/interface/`
+- **Recoil Stores**: `app/core/storerecoil/`
+- **Routes**: `app/routes/`
+- **Entry Point**: `app/index.tsx`
+
+---
+
+## ✅ Checklist Before Committing
+
+- [ ] Run `yarn lint` - no errors
+- [ ] Run `yarn test` - all tests pass
+- [ ] Check for `console.log` - remove or replace with proper logging
+- [ ] Check i18n - no hardcoded text
+- [ ] Check types - no `any`, no type errors
+- [ ] Check imports - use `@/` alias where appropriate
+- [ ] Check accessibility - ARIA labels, semantic HTML
+- [ ] Test in browser - functionality works as expected
+- [ ] Conventional Commits - message format correct
+- [ ] PR ready - clear description, linked issues
+
+---
+
+**Remember**: Quality > Speed. Write maintainable, readable code that follows these rules. When in doubt, ask!
+

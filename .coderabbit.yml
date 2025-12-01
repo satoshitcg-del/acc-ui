@@ -1,0 +1,41 @@
+version: 1
+language: th
+
+policies:
+  - file: ".cursorrules"
+    purpose: "project_coding_policies"
+    required: true
+
+instructions_files:
+  - ".instructions.md"
+
+mcp:
+  enabled: true
+
+review:
+  path_filters:
+    include:
+      - "app/**"
+      - "*.md"
+      - "*.yml"
+    exclude:
+      - "app/dist/**"
+      - "node_modules/**"
+
+# ค่าที่ช่วยให้รีวิวใน IDE กระชับและใช้งานได้สะดวก
+ide:
+  review:
+    only_changed: true          # โฟกัสเฉพาะไฟล์ที่แก้ใน IDE
+    suggestions: line_level     # แสดงโค้ดแก้ไขแบบ one‑click ใน diff view
+    group_minor_issues: true    # รวมประเด็นเล็ก ๆ ไม่ให้คอมเมนต์รก
+
+# กำหนดสไตล์ให้สอดคล้อง .cursorrules (กัน drift เมื่อรีวิวอัตโนมัติ)
+style:
+  typescript:
+    no_any: true
+    strict_null_checks: true
+  formatting:
+    quotes: double
+    semicolons: required
+    trailing_commas: all
+
